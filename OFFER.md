@@ -1,0 +1,53 @@
+# Micro-automation service menu
+
+**Operator:** India-based solo builder (AEO-001 experiment surface)  
+**Positioning:** Honest fixed-price scripts and spreadsheet/ledger automation. No fake reviews. No guaranteed viral results. Deliverables are concrete files you keep.
+
+**Free tool (lead magnet):** [`cash-ledger`](../product/cash-ledger/) — append-only SHA-256 cash journal CLI. Download the zip, run locally, verify the chain yourself.
+
+---
+
+## Packages (one-off)
+
+Prices shown in INR (primary) and approximate USD (reporting; FX varies).
+
+| Tier | Name | Price (INR) | Approx USD | What you get | Typical turnaround |
+|------|------|------------:|----------:|--------------|--------------------|
+| A | **Cleanup Script** | ₹499 | ~\$6 | One Python or spreadsheet script that cleans / dedupes / normalizes a CSV or sheet you provide; short usage notes | 1–2 business days |
+| B | **Ledger Setup** | ₹999 | ~\$12 | `cash-ledger` (or equivalent) initialized for your workflow + 1 custom entry type mapping + verify walkthrough + starter CSV | 2–3 business days |
+| C | **Spreadsheet Automation** | ₹2499 | ~\$30 | Fixed-scope automation: import → transform → export (Sheets/Excel/CSV), or a small CLI that replaces a repetitive manual step; includes README + one revision round | 3–5 business days |
+
+### Scope rules (honest)
+
+- **In scope:** scripts you own forever; local tools; documented steps; one clarification round before build; one revision round after delivery (Tier C).
+- **Out of scope:** ongoing retainers, bank/API credential handling, scraping that violates ToS, guaranteed revenue outcomes, fake testimonials for your brand.
+- **Data:** You send sample/anonymized data. Do not send passwords, OTPs, CVVs, or live bank credentials.
+
+### How payment settles (deferred rails)
+
+Until a listing platform is live with owner KYC/payout:
+
+1. Agree scope in writing (email / GitHub issue / form).
+2. Owner receives payment on owner-held rails (UPI / bank / agreed marketplace).
+3. Work starts after owner confirms settlement (or 50% deposit for Tier C).
+4. Delivery via private link or repo; you verify locally.
+
+**No payment processor is connected by the operator in this phase.** Listings will point buyers to owner-controlled settlement.
+
+---
+
+## Who this is for
+
+- Solo founders / freelancers who want a **tamper-evident cash journal** without QuickBooks
+- Small teams drowning in one-off CSV/sheet cleanup
+- Anyone who needs a **one-script fix**, not a six-month SaaS
+
+## Who this is not for
+
+- Buyers seeking fake social proof or gray-hat growth
+- Projects requiring the operator to hold bank secrets
+- Unlimited revisions / “make me an app” without a written scope
+
+## Contact
+
+See landing page (`index.html`) for placeholder contact fields. Live contact is published only after owner-approved channel is live.

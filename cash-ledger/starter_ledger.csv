@@ -1,0 +1,2 @@
+entry_id,timestamp_utc,timestamp_local,entry_type,counterparty,currency,amount,cash_effect,memo,evidence_ref,prev_entry_hash,entry_hash
+E0001,2026-09-17T08:32:26Z,2026-09-17T14:02:26+05:30,GENESIS,self,INR,0E-8,0E-8,Starter empty cash journal (cash-ledger v1.0.0),,0000000000000000000000000000000000000000000000000000000000000000,b9519235ba8be13a3a3d7aa2685e94a3cfb5b7a8eca379a4ea9871b8025d382e
