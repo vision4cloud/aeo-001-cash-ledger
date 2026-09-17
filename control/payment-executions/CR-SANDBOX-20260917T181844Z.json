@@ -1,0 +1,13 @@
+{
+  "canonical_economic_effect_minor": 0,
+  "cashfree_transfer_id": "667182453",
+  "currency": "INR",
+  "environment": "SANDBOX",
+  "executed_at_utc": "2026-09-17T18:21:21.192223Z",
+  "real_money_effect_minor": 0,
+  "request_id": "CR-SANDBOX-20260917T181844Z",
+  "requested_amount_minor": 100,
+  "schema": "aeo-payment-execution-v1",
+  "status": "SUCCESS",
+  "transfer_id": "AEO_SB_TX_4de00733febfb185"
+}
