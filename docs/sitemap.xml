@@ -6,6 +6,16 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://vision4cloud.github.io/aeo-001-cash-ledger/faq.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://vision4cloud.github.io/aeo-001-cash-ledger/FAQ.md</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://vision4cloud.github.io/aeo-001-cash-ledger/guide-hash-chained-journals.md</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
