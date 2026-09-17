@@ -18,10 +18,13 @@ See [Releases](https://github.com/vision4cloud/aeo-001-cash-ledger/releases) for
 
 - [Guide: hash-chained cash journals](./docs/guide-hash-chained-journals.md)
 - [Sample workflow](./cash-ledger/EXAMPLES.md)
+- [Live offer page](https://vision4cloud.github.io/aeo-001-cash-ledger/)
 
 ## Paid micro-automation offers
 
-See [OFFER.md](./OFFER.md) (₹499 / ₹999 / ₹2499). Landing page: GitHub Pages `/docs`.
+Fixed one-off tiers: **₹499 / ₹999 / ₹2499** — see [OFFER.md](./OFFER.md).
+
+**How to order:** open a [GitHub Issue](https://github.com/vision4cloud/aeo-001-cash-ledger/issues/new), agree written scope, then pay via receive-only UPI `9910990086@indie` (include the Issue URL in the UPI note). Revenue counted only after settlement. Do not send PIN/OTP/CVV/passwords.
 
 ## License
 
