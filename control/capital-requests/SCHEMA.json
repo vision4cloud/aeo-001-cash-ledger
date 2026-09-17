@@ -1,0 +1,17 @@
+{
+  "schema": "aeo-capital-request-v1",
+  "request_id": "CR-<UTC_TIMESTAMP>-<RANDOM_SUFFIX>",
+  "created_at_utc": "<ISO-8601 UTC>",
+  "expires_at_utc": "<ISO-8601 UTC or null>",
+  "currency": "INR",
+  "amount_minor": 0,
+  "category": "OPERATING_SPEND or CAPITAL_AT_RISK",
+  "purpose_summary": "<brief non-secret purpose>",
+  "maximum_possible_loss_minor": 0,
+  "recurring_liability": false,
+  "requires_human_auth": false,
+  "requires_new_credentials": false,
+  "zero_cost_alternative_exists": true,
+  "evidence_spend": "<how actual spend will be proven>",
+  "evidence_result": "<how economic result will be proven>"
+}
