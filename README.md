@@ -14,6 +14,11 @@ python3 cash-ledger/cash_ledger.py -f ledger.csv verify
 
 See [Releases](https://github.com/vision4cloud/aeo-001-cash-ledger/releases) for `cash-ledger-v1.0.0.zip`.
 
+## Docs
+
+- [Guide: hash-chained cash journals](./docs/guide-hash-chained-journals.md)
+- [Sample workflow](./cash-ledger/EXAMPLES.md)
+
 ## Paid micro-automation offers
 
 See [OFFER.md](./OFFER.md) (₹499 / ₹999 / ₹2499). Landing page: GitHub Pages `/docs`.

@@ -66,6 +66,12 @@ python3 cash_ledger.py -f my_cash.csv balance
 
 This is **not** a substitute for independent custody, bank statements, or audited books. It is a local tamper-evident journal.
 
+## Examples
+
+See [EXAMPLES.md](./EXAMPLES.md) for a short sample workflow (init → add → verify → tamper demo).
+
+Longer guide: [docs/guide-hash-chained-journals.md](../docs/guide-hash-chained-journals.md).
+
 ## Starter file
 
 `starter_ledger.csv` ships as a verified empty genesis you can copy, or run `init` yourself.
