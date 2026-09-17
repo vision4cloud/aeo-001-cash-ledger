@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Verify integrity — hash-chained cash-ledger CLI</title>
+  <meta name="description" content="Buyer-trust page: download cash-ledger, run verify locally, and understand what a valid SHA-256 chain tip means. Free MIT CLI. Optional Tier A/B/C help." />
+  <link rel="canonical" href="https://vision4cloud.github.io/aeo-001-cash-ledger/integrity.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Verify integrity — cash-ledger" />
+  <meta property="og:description" content="Prove the journal was not silently rewritten. Download zip → init/add → verify PASS. Honest buyer-trust walkthrough." />
+  <meta property="og:url" content="https://vision4cloud.github.io/aeo-001-cash-ledger/integrity.html" />
+  <meta name="twitter:card" content="summary" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "HowTo",
+        "name": "Verify a cash-ledger journal locally",
+        "description": "Download the free MIT cash-ledger CLI, initialize or open a CSV journal, and run verify to check the SHA-256 hash chain.",
+        "totalTime": "PT5M",
+        "tool": [
+          {"@type": "HowToTool", "name": "Python 3.9+"},
+          {"@type": "HowToTool", "name": "cash-ledger-v1.0.0.zip"}
+        ],
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Download the zip",
+            "text": "Download cash-ledger-v1.0.0.zip from the GitHub Release and unzip it. Stdlib only — no pip install required."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Init or open a journal",
+            "text": "Run python3 cash_ledger.py -f my_cash.csv init --currency INR, then add rows with the add command."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Run verify",
+            "text": "Run python3 cash_ledger.py -f my_cash.csv verify. Expect PASS with an entry count and tip hash, or FAIL if the chain is broken."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Optional tip and balance",
+            "text": "Run tip to print the current chain tip hash, and balance to sum cash_effect by currency (balance runs verify first)."
+          }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "name": "Verify integrity — hash-chained cash-ledger CLI",
+        "url": "https://vision4cloud.github.io/aeo-001-cash-ledger/integrity.html",
+        "description": "Buyer-trust page explaining how to verify the hash-chained cash-ledger journal locally.",
+        "isPartOf": {"@type": "WebSite", "url": "https://vision4cloud.github.io/aeo-001-cash-ledger/"}
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --card: #1a2332;
+      --text: #e7ecf3;
+      --muted: #9aa8bc;
+      --accent: #3dcea7;
+      --border: #2a3548;
+      --cta-bg: #1e3d34;
+      --fail: #e07a7a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+    h1 { font-size: 1.75rem; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+    h2.section { font-size: 1.2rem; margin: 2rem 0 0.75rem; }
+    .tag { color: var(--accent); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+    .lead { color: var(--muted); font-size: 1.05rem; margin: 1rem 0 1.75rem; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.35rem;
+      margin-bottom: 1rem;
+    }
+    .card h2 { margin: 0 0 0.35rem; font-size: 1.15rem; }
+    .price { font-size: 1.35rem; color: var(--accent); font-weight: 700; }
+    .price span { color: var(--muted); font-size: 0.9rem; font-weight: 500; }
+    ul { margin: 0.5rem 0 0; padding-left: 1.2rem; color: var(--muted); }
+    ol.howto { margin: 0.5rem 0 0; padding-left: 1.2rem; color: var(--muted); }
+    ol.howto li { margin-bottom: 0.55rem; }
+    pre.cmd {
+      background: #0a0e14;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      overflow-x: auto;
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin: 0.65rem 0 0;
+    }
+    .pass { color: var(--accent); font-weight: 700; }
+    .fail { color: var(--fail); font-weight: 700; }
+    .cta {
+      border-color: var(--accent);
+      background: var(--cta-bg);
+      text-align: center;
+      padding: 1.5rem 1.35rem;
+    }
+    .cta p { margin: 0 0 0.85rem; color: var(--muted); font-size: 0.95rem; }
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #0a1210 !important;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 0.7rem 1.25rem;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    .btn:hover { filter: brightness(1.08); }
+    .btn-secondary {
+      display: inline-block;
+      margin-top: 0.65rem;
+      color: var(--accent) !important;
+      font-size: 0.9rem;
+    }
+    .note {
+      font-size: 0.9rem;
+      color: var(--muted);
+      border-left: 3px solid var(--border);
+      padding-left: 0.85rem;
+      margin: 1.5rem 0;
+    }
+    nav.crumbs { font-size: 0.9rem; color: var(--muted); margin-bottom: 1.25rem; }
+    nav.crumbs a { color: var(--accent); }
+    footer { margin-top: 2.5rem; font-size: 0.8rem; color: var(--muted); }
+    a { color: var(--accent); }
+    code { background: #0a0e14; padding: 0.1em 0.35em; border-radius: 4px; font-size: 0.9em; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="crumbs">
+      <a href="./">Home</a> · <a href="./pricing.html">Pricing</a> · <a href="./faq.html">FAQ</a> · <a href="./examples.html">Examples</a> · <a href="./guide-hash-chained-journals.html">Guide</a> · <strong>Integrity</strong>
+    </nav>
+    <p class="tag">Buyer trust</p>
+    <h1>Verify the journal yourself</h1>
+    <p class="lead">
+      <code>cash-ledger</code> is a free MIT CLI: one Python file, one CSV, a SHA-256 chain.
+      You do not have to trust a dashboard — run <code>verify</code> on your machine and see <span class="pass">PASS</span> or <span class="fail">FAIL</span>.
+    </p>
+
+    <div class="card" id="what-pass-means">
+      <h2>What a valid chain tip means</h2>
+      <ul>
+        <li>Each row’s <code>entry_hash</code> covers the previous tip plus that row’s canonical fields.</li>
+        <li><code>verify</code> recomputes every hash. If history was edited, later hashes break → <span class="fail">FAIL</span>.</li>
+        <li>A <span class="pass">PASS</span> tip is evidence the file was not silently rewritten since those rows were appended — not a bank statement, not a custody guarantee, not investment advice.</li>
+        <li>You keep the CSV. No SaaS login. No cloud rewrite of your history.</li>
+      </ul>
+    </div>
+
+    <h2 class="section">Verify in ~5 minutes</h2>
+    <div class="card">
+      <ol class="howto">
+        <li>
+          <strong>Download</strong> the release zip (stdlib only — no <code>pip install</code>).
+          <pre class="cmd"># Release asset
+https://github.com/vision4cloud/aeo-001-cash-ledger/releases/download/v1.0.0/cash-ledger-v1.0.0.zip</pre>
+        </li>
+        <li>
+          <strong>Unzip</strong> and open a terminal in the folder that contains <code>cash_ledger.py</code>.
+        </li>
+        <li>
+          <strong>Init</strong> a journal (or use your own CSV from a delivery).
+          <pre class="cmd">python3 cash_ledger.py -f my_cash.csv init --currency INR --memo "Opening"</pre>
+        </li>
+        <li>
+          <strong>Add</strong> a sample inflow (optional if you already have a ledger file).
+          <pre class="cmd">python3 cash_ledger.py -f my_cash.csv add --amount 999 --direction in \
+  --type SALE --counterparty demo --memo "Sample"</pre>
+        </li>
+        <li>
+          <strong>Verify</strong> — expect <span class="pass">PASS</span> with entry count and tip hash.
+          <pre class="cmd">python3 cash_ledger.py -f my_cash.csv verify
+# Example: PASS: 1 entries; tip=&lt;64-hex&gt;
+
+python3 cash_ledger.py -f my_cash.csv tip
+python3 cash_ledger.py -f my_cash.csv balance</pre>
+        </li>
+        <li>
+          <strong>Optional tamper check:</strong> edit an old amount in the CSV, run <code>verify</code> again → expect <span class="fail">FAIL</span>. That is the product promise.
+        </li>
+      </ol>
+      <p style="margin:0.85rem 0 0;font-size:0.9rem;color:var(--muted);">
+        Longer explainer: <a href="./guide-hash-chained-journals.html">Guide</a> · short sample: <a href="./examples.html">Examples</a>
+      </p>
+    </div>
+
+    <div class="card free" style="border-color:var(--accent);background:linear-gradient(135deg,#143028 0%,var(--card) 60%);">
+      <h2>Free forever — cash-ledger CLI</h2>
+      <p class="price">₹0 <span>/ MIT · Python 3.9+</span></p>
+      <ul>
+        <li>Commands: <code>init</code> · <code>add</code> · <code>verify</code> · <code>tip</code> · <code>balance</code></li>
+        <li>Append-only CSV · SHA-256 chain · no dependencies beyond stdlib</li>
+      </ul>
+      <p style="margin:0.75rem 0 0;font-size:0.9rem;">
+        <a href="https://github.com/vision4cloud/aeo-001-cash-ledger/releases/download/v1.0.0/cash-ledger-v1.0.0.zip">Download cash-ledger-v1.0.0.zip</a>
+        · <a href="https://github.com/vision4cloud/aeo-001-cash-ledger/releases/tag/v1.0.0">Release notes</a>
+      </p>
+    </div>
+
+    <h2 class="section">Need help wiring it in?</h2>
+    <div class="card">
+      <ul>
+        <li><strong>A — Cleanup Script</strong> ₹499 — one CSV/sheet cleanup script</li>
+        <li><strong>B — Ledger Setup</strong> ₹999 — cash-ledger + custom mapping + verify walkthrough</li>
+        <li><strong>C — Spreadsheet Automation</strong> ₹2499 — fixed-scope import → transform → export</li>
+      </ul>
+      <p style="margin:0.75rem 0 0;font-size:0.9rem;color:var(--muted);">
+        Full detail: <a href="./pricing.html">pricing.html</a>. Order via GitHub Issue; pay only after written scope.
+      </p>
+    </div>
+
+    <div class="card cta" id="order">
+      <h2 style="margin:0 0 0.5rem;font-size:1.2rem;">Order Tier A / B / C</h2>
+      <p>
+        Open a GitHub Issue with the order template. After scope agreement, pay receive-only UPI
+        <code>9910990086@indie</code> and put the Issue URL in the UPI note.
+        Never send PIN, OTP, CVV, or passwords.
+      </p>
+      <a class="btn" href="https://github.com/vision4cloud/aeo-001-cash-ledger/issues/new?template=order.yml">Open a GitHub Issue to order</a>
+      <br />
+      <a class="btn-secondary" href="./pricing.html">See pricing</a>
+      <br />
+      <a class="btn-secondary" href="./faq.html">FAQ: when to pay</a>
+    </div>
+
+    <p class="note">
+      <strong>Honesty:</strong> No fabricated social proof. <code>verify</code> proves local chain integrity of the CSV you hold —
+      it is not a bank reconciliation service and does not move money. Revenue is counted only after settlement confirmation.
+    </p>
+
+    <footer>
+      EX-001 integrity page · AEO-001 · updated 2026-09-17 · HowTo JSON-LD · $0 Pages conversion
+    </footer>
+  </div>
+</body>
+</html>
