@@ -1,0 +1,12 @@
+{
+  "category": "OPERATING_SPEND",
+  "currency": "INR",
+  "decided_at_utc": "2026-09-17T18:18:58.581771Z",
+  "decision": "POLICY_APPROVED_PENDING_PAYMENT_RAIL",
+  "economic_effect_minor": 0,
+  "purpose_summary": "COMMISSIONING SANDBOX E2E TEST ONLY",
+  "reason": "WITHIN_EXISTING_PRE_REVENUE_OPERATING_LIMITS",
+  "request_id": "CR-SANDBOX-20260917T181844Z",
+  "requested_amount_minor": 100,
+  "schema": "aeo-capital-decision-v1"
+}
