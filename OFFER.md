@@ -3,7 +3,9 @@
 **Operator:** India-based solo builder (AEO-001 experiment surface)  
 **Positioning:** Honest fixed-price scripts and spreadsheet/ledger automation. No fake reviews. No guaranteed viral results. Deliverables are concrete files you keep.
 
-**Free tool (lead magnet):** [`cash-ledger`](../product/cash-ledger/) — append-only SHA-256 cash journal CLI. Download the zip, run locally, verify the chain yourself.
+**Free tool (lead magnet):** [`cash-ledger`](https://github.com/vision4cloud/aeo-001-cash-ledger/releases/download/v1.0.0/cash-ledger-v1.0.0.zip) — append-only SHA-256 cash journal CLI. Download the zip, run locally, verify the chain yourself. [Release v1.0.0](https://github.com/vision4cloud/aeo-001-cash-ledger/releases/tag/v1.0.0).
+
+**Live offer page:** https://vision4cloud.github.io/aeo-001-cash-ledger/
 
 ---
 
@@ -23,16 +25,16 @@ Prices shown in INR (primary) and approximate USD (reporting; FX varies).
 - **Out of scope:** ongoing retainers, bank/API credential handling, scraping that violates ToS, guaranteed revenue outcomes, fake testimonials for your brand.
 - **Data:** You send sample/anonymized data. Do not send passwords, OTPs, CVVs, or live bank credentials.
 
-### How payment settles (deferred rails)
+### How to order ($0 channel)
 
-Until a listing platform is live with owner KYC/payout:
+1. Open a new GitHub Issue: https://github.com/vision4cloud/aeo-001-cash-ledger/issues/new
+2. Title with tier (e.g. `[Tier A] CSV cleanup for invoices`).
+3. Describe the painful step + desired output; attach a small anonymized sample if you can.
+4. Agree written scope in the Issue thread.
+5. Payment settles on **owner-held rails** (UPI / bank / agreed marketplace) after scope agreement; work starts after owner confirms settlement (or 50% deposit for Tier C).
+6. Delivery via private link or repo; you verify locally.
 
-1. Agree scope in writing (email / GitHub issue / form).
-2. Owner receives payment on owner-held rails (UPI / bank / agreed marketplace).
-3. Work starts after owner confirms settlement (or 50% deposit for Tier C).
-4. Delivery via private link or repo; you verify locally.
-
-**No payment processor is connected by the operator in this phase.** Listings will point buyers to owner-controlled settlement.
+**No payment processor is connected by the operator in this phase.** Issues are the preferred contact/order channel (free; no new SaaS account required if you already use GitHub).
 
 ---
 
@@ -50,4 +52,5 @@ Until a listing platform is live with owner KYC/payout:
 
 ## Contact
 
-See landing page (`index.html`) for placeholder contact fields. Live contact is published only after owner-approved channel is live.
+**Preferred:** [Open a GitHub Issue](https://github.com/vision4cloud/aeo-001-cash-ledger/issues/new) on `vision4cloud/aeo-001-cash-ledger`.  
+Do not send credentials in Issues or elsewhere.

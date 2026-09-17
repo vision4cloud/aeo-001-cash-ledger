@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Micro-automation — fixed-price scripts & cash-ledger</title>
-  <meta name="description" content="Honest fixed-price micro-automation: CSV cleanup, cash-ledger setup, spreadsheet automation. Free cash-ledger CLI included." />
+  <meta name="description" content="Honest fixed-price micro-automation: CSV cleanup, cash-ledger setup, spreadsheet automation. Free cash-ledger CLI included. Order via GitHub Issue." />
   <style>
     :root {
       --bg: #0f1419;
@@ -13,6 +13,7 @@
       --muted: #9aa8bc;
       --accent: #3dcea7;
       --border: #2a3548;
+      --cta-bg: #1e3d34;
     }
     * { box-sizing: border-box; }
     body {
@@ -24,6 +25,7 @@
     }
     .wrap { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
     h1 { font-size: 1.75rem; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+    h2.section { font-size: 1.2rem; margin: 2rem 0 0.75rem; }
     .tag { color: var(--accent); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
     .lead { color: var(--muted); font-size: 1.05rem; margin: 1rem 0 1.75rem; }
     .card {
@@ -37,9 +39,35 @@
     .price { font-size: 1.35rem; color: var(--accent); font-weight: 700; }
     .price span { color: var(--muted); font-size: 0.9rem; font-weight: 500; }
     ul { margin: 0.5rem 0 0; padding-left: 1.2rem; color: var(--muted); }
+    ol.howto { margin: 0.5rem 0 0; padding-left: 1.2rem; color: var(--muted); }
+    ol.howto li { margin-bottom: 0.4rem; }
     .free {
       border-color: var(--accent);
       background: linear-gradient(135deg, #143028 0%, var(--card) 60%);
+    }
+    .cta {
+      border-color: var(--accent);
+      background: var(--cta-bg);
+      text-align: center;
+      padding: 1.5rem 1.35rem;
+    }
+    .cta p { margin: 0 0 0.85rem; color: var(--muted); font-size: 0.95rem; }
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #0a1210 !important;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 0.7rem 1.25rem;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    .btn:hover { filter: brightness(1.08); }
+    .btn-secondary {
+      display: inline-block;
+      margin-top: 0.65rem;
+      color: var(--accent) !important;
+      font-size: 0.9rem;
     }
     .note {
       font-size: 0.9rem;
@@ -62,6 +90,17 @@
       Free open tool: <code>cash-ledger</code> — a tiny SHA-256 hash-chained cash journal CLI.
     </p>
 
+    <div class="card cta" id="order">
+      <h2 style="margin:0 0 0.5rem;font-size:1.2rem;">Next step — order or ask</h2>
+      <p>
+        Prefer opening a <strong>GitHub Issue</strong> on this repo (free, no new account if you already use GitHub).
+        Say which tier (A / B / C), what you need cleaned or automated, and attach a small sample if you can.
+      </p>
+      <a class="btn" href="https://github.com/vision4cloud/aeo-001-cash-ledger/issues/new">Open a GitHub Issue to order</a>
+      <br />
+      <a class="btn-secondary" href="https://github.com/vision4cloud/aeo-001-cash-ledger/issues">Browse existing issues</a>
+    </div>
+
     <div class="card free">
       <h2>Free — cash-ledger</h2>
       <p class="price">₹0 <span>/ forever · MIT</span></p>
@@ -70,8 +109,9 @@
         <li><code>init</code> · <code>add</code> · <code>verify</code> · <code>tip</code> · <code>balance</code></li>
         <li>Python 3.9+ stdlib only — no install drama</li>
       </ul>
-      <p style="margin:0.75rem 0 0;font-size:0.9rem;color:var(--muted);">
-        Package: <code>cash-ledger-v1.0.0.zip</code> (see GitHub release when published)
+      <p style="margin:0.75rem 0 0;font-size:0.9rem;">
+        <a href="https://github.com/vision4cloud/aeo-001-cash-ledger/releases/download/v1.0.0/cash-ledger-v1.0.0.zip">Download cash-ledger-v1.0.0.zip</a>
+        · <a href="https://github.com/vision4cloud/aeo-001-cash-ledger/releases/tag/v1.0.0">Release notes</a>
       </p>
     </div>
 
@@ -105,18 +145,31 @@
       </ul>
     </div>
 
+    <h2 class="section">How to order</h2>
+    <div class="card">
+      <ol class="howto">
+        <li><a href="https://github.com/vision4cloud/aeo-001-cash-ledger/issues/new">Open a new Issue</a> on <code>vision4cloud/aeo-001-cash-ledger</code>.</li>
+        <li>Title it with the tier (e.g. <code>[Tier A] CSV cleanup for invoices</code>).</li>
+        <li>Describe the painful step, desired output, and attach a small anonymized sample if possible.</li>
+        <li>We agree written scope in the Issue thread.</li>
+        <li>Payment settles on <strong>owner-held rails</strong> (UPI / bank / agreed marketplace) after scope agreement — then work starts.</li>
+        <li>Delivery via private link or repo; you verify locally. Do not send passwords, OTPs, CVVs, or bank secrets.</li>
+      </ol>
+    </div>
+
     <p class="note">
       <strong>Integrity:</strong> No fabricated social proof. Operator does not hold bank PINs, CVVs, OTPs, or passkeys.
-      Payment settles on owner-held rails after scope agreement. This page is a static offer sheet — live checkout links appear only after owner KYC/payout is ready.
+      Payment settles on owner-held rails after scope agreement. This page is a static offer sheet — no live checkout widget in this phase.
     </p>
 
     <p class="note">
-      <strong>Contact:</strong> TBD — published with first live channel (GitHub Discussions / owner email).
-      Do not send credentials.
+      <strong>Contact / order channel ($0):</strong>
+      <a href="https://github.com/vision4cloud/aeo-001-cash-ledger/issues/new">GitHub Issues on this repo</a>.
+      Prefer Issues over email for a public paper trail of scope. Do not send credentials.
     </p>
 
     <footer>
-      EX-001 offer surface · AEO-001 · built 2026-09-17 · prices in INR
+      EX-001 offer surface · AEO-001 · updated 2026-09-17 · prices in INR
     </footer>
   </div>
 </body>
