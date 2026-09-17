@@ -31,8 +31,14 @@ Prices shown in INR (primary) and approximate USD (reporting; FX varies).
 2. Title with tier (e.g. `[Tier A] CSV cleanup for invoices`).
 3. Describe the painful step + desired output; attach a small anonymized sample if you can.
 4. Agree written scope in the Issue thread.
-5. Payment settles on **owner-held rails** (UPI / bank / agreed marketplace) after scope agreement; work starts after owner confirms settlement (or 50% deposit for Tier C).
+5. After scope agreement, pay the agreed price via the receive-only UPI ID `9910990086@indie`; include the GitHub Issue URL or order reference in the UPI note. Work starts after owner confirms settlement (or 50% deposit for Tier C).
 6. Delivery via private link or repo; you verify locally.
+
+### Payment
+
+After we agree written scope in the GitHub Issue, pay the agreed price via the receive-only UPI ID `9910990086@indie`. Include the GitHub Issue URL or order reference in the UPI note.
+
+Revenue is counted only after settlement is confirmed—not when an order is opened or scope is agreed. No bank login or payment secrets are needed; do not send passwords, OTPs, CVVs, or bank credentials.
 
 **No payment processor is connected by the operator in this phase.** Issues are the preferred contact/order channel (free; no new SaaS account required if you already use GitHub).
 
