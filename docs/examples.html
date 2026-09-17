@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sample workflow — cash-ledger CLI</title>
+  <meta name="description" content="One-minute sample workflow for cash-ledger: init, add, verify, tip, balance, and prove tamper detection. Free MIT Python CLI." />
+  <link rel="canonical" href="https://vision4cloud.github.io/aeo-001-cash-ledger/examples.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="cash-ledger sample workflow" />
+  <meta property="og:description" content="Init → add → verify → tip → balance. Prove silent spreadsheet rewrites fail verify." />
+  <meta property="og:url" content="https://vision4cloud.github.io/aeo-001-cash-ledger/examples.html" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "cash-ledger sample workflow",
+    "description": "Append-only SHA-256 cash journal: init, add, verify, tip, balance, and prove tamper detection.",
+    "totalTime": "PT5M",
+    "tool": [{"@type": "HowToTool", "name": "Python 3.9+"}, {"@type": "HowToTool", "name": "cash-ledger CLI"}],
+    "step": [
+      {"@type": "HowToStep", "name": "Init a journal", "text": "Run cash_ledger.py init with an INR currency and opening memo."},
+      {"@type": "HowToStep", "name": "Record cash moves", "text": "Add one inflow and one outflow with type, counterparty, and memo."},
+      {"@type": "HowToStep", "name": "Verify tip and balance", "text": "Run verify (expect PASS), tip, and balance."},
+      {"@type": "HowToStep", "name": "Prove tamper detection", "text": "Edit an old amount in the CSV and run verify again (expect FAIL)."}
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0f1419; --card: #1a2332; --text: #e7ecf3; --muted: #9aa8bc;
+      --accent: #3dcea7; --border: #2a3548; --cta-bg: #1e3d34;
+    }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:"Segoe UI",system-ui,-apple-system,sans-serif; background:var(--bg); color:var(--text); line-height:1.55; }
+    .wrap { max-width:720px; margin:0 auto; padding:2rem 1.25rem 3rem; }
+    .tag { color:var(--accent); font-size:0.85rem; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; }
+    h1 { font-size:1.6rem; margin:0.35rem 0 0.5rem; letter-spacing:-0.02em; }
+    .lead { color:var(--muted); font-size:1.05rem; margin:1rem 0 1.5rem; }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:1.25rem 1.35rem; margin-bottom:1rem; }
+    .card h2 { margin:0 0 0.5rem; font-size:1.05rem; }
+    .card p, .card li { color:var(--muted); font-size:0.95rem; }
+    pre {
+      background:#0a0e14; border:1px solid var(--border); border-radius:8px;
+      padding:0.85rem 1rem; overflow-x:auto; color:#d7e2f0; font-size:0.85rem;
+    }
+    code { background:#0a0e14; padding:0.1em 0.35em; border-radius:4px; font-size:0.9em; }
+    pre code { background:transparent; padding:0; }
+    a { color:var(--accent); }
+    nav { margin-bottom:1.25rem; font-size:0.9rem; }
+    .cta { border-color:var(--accent); background:var(--cta-bg); text-align:center; }
+    .btn {
+      display:inline-block; background:var(--accent); color:#0a1210 !important; font-weight:700;
+      text-decoration:none; padding:0.65rem 1.15rem; border-radius:8px; font-size:0.95rem;
+    }
+    footer { margin-top:2rem; font-size:0.8rem; color:var(--muted); }
+    ol { margin:0.4rem 0 0; padding-left:1.2rem; color:var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav><a href="./">← Offer home</a> · <a href="./faq.html">FAQ</a> · <a href="./guide-hash-chained-journals.html">Guide</a></nav>
+    <p class="tag">Free · MIT · stdlib only</p>
+    <h1>cash-ledger — sample workflow</h1>
+    <p class="lead">Short conversion-friendly walkthrough. Python 3.9+ with no <code>pip install</code>.</p>
+
+    <div class="card">
+      <h2>1. Init a journal (INR)</h2>
+      <pre><code>python3 cash_ledger.py -f demo_cash.csv init --currency INR --memo "Demo opening"</code></pre>
+      <p>Expect a genesis row and a tip hash printed.</p>
+    </div>
+
+    <div class="card">
+      <h2>2. Record two cash moves</h2>
+      <pre><code># Inflow
+python3 cash_ledger.py -f demo_cash.csv add --amount 999 --direction in \
+  --type SALE --counterparty acme_client --memo "Tier B ledger setup"
+
+# Outflow
+python3 cash_ledger.py -f demo_cash.csv add --amount 50 --direction out \
+  --type EXPENSE --counterparty registrar --memo "Domain renewal"</code></pre>
+    </div>
+
+    <div class="card">
+      <h2>3. Verify + tip + balance</h2>
+      <pre><code>python3 cash_ledger.py -f demo_cash.csv verify   # expect PASS
+python3 cash_ledger.py -f demo_cash.csv tip
+python3 cash_ledger.py -f demo_cash.csv balance  # net should reflect +999 -50</code></pre>
+    </div>
+
+    <div class="card">
+      <h2>4. Prove tamper detection (optional)</h2>
+      <ol>
+        <li>Open <code>demo_cash.csv</code> in a text editor.</li>
+        <li>Change an old <code>amount</code> (or memo) on a non-genesis row.</li>
+        <li>Run <code>verify</code> again → expect <strong>FAIL</strong>.</li>
+      </ol>
+      <p style="margin:0.75rem 0 0;">That is the product promise in one minute: silent spreadsheet rewrites become loud.</p>
+    </div>
+
+    <div class="card">
+      <h2>5. Starter file</h2>
+      <p>Copy <code>starter_ledger.csv</code> from the release zip if you want a pre-made genesis, or always <code>init</code> fresh.</p>
+      <p style="margin:0.65rem 0 0;">
+        <a href="https://github.com/vision4cloud/aeo-001-cash-ledger/releases/download/v1.0.0/cash-ledger-v1.0.0.zip">Download zip</a>
+        · <a href="https://github.com/vision4cloud/aeo-001-cash-ledger/blob/main/cash-ledger/EXAMPLES.md">Markdown source</a>
+      </p>
+    </div>
+
+    <div class="card cta">
+      <p style="margin:0 0 0.75rem;color:var(--muted);">Need a one-off cleanup, ledger setup, or spreadsheet automation?</p>
+      <a class="btn" href="https://github.com/vision4cloud/aeo-001-cash-ledger/issues/new?template=order.yml">Open order Issue</a>
+    </div>
+
+    <footer>EX-001 · examples.html · 2026-09-17 · $0 Pages conversion</footer>
+  </div>
+</body>
+</html>

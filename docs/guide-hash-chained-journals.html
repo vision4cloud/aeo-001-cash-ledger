@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hash-chained cash journals — cash-ledger guide</title>
+  <meta name="description" content="Why spreadsheets silently rewrite history, and how an append-only SHA-256 cash journal makes tampering obvious. Free MIT Python CLI." />
+  <link rel="canonical" href="https://vision4cloud.github.io/aeo-001-cash-ledger/guide-hash-chained-journals.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Hash-chained cash journals in ~100 lines of Python" />
+  <meta property="og:description" content="Append-only CSV cash journal with local verify. No blockchain. No SaaS. Free MIT tool." />
+  <meta property="og:url" content="https://vision4cloud.github.io/aeo-001-cash-ledger/guide-hash-chained-journals.html" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Hash-chained cash journals in ~100 lines of Python",
+    "description": "Append-only SHA-256 cash journal CLI — why spreadsheets silently lie and how verify fails on rewrite.",
+    "url": "https://vision4cloud.github.io/aeo-001-cash-ledger/guide-hash-chained-journals.html",
+    "author": {"@type": "Person", "name": "Gourav Sharma"},
+    "datePublished": "2026-09-17"
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0f1419; --card: #1a2332; --text: #e7ecf3; --muted: #9aa8bc;
+      --accent: #3dcea7; --border: #2a3548; --cta-bg: #1e3d34;
+    }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:"Segoe UI",system-ui,-apple-system,sans-serif; background:var(--bg); color:var(--text); line-height:1.55; }
+    .wrap { max-width:720px; margin:0 auto; padding:2rem 1.25rem 3rem; }
+    .tag { color:var(--accent); font-size:0.85rem; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; }
+    h1 { font-size:1.55rem; margin:0.35rem 0 0.75rem; letter-spacing:-0.02em; }
+    .lead { color:var(--muted); font-size:1.02rem; margin:0 0 1.5rem; }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:1.25rem 1.35rem; margin-bottom:1rem; }
+    .card h2 { margin:0 0 0.65rem; font-size:1.08rem; }
+    .card p, .card li { color:var(--muted); font-size:0.95rem; }
+    .card p { margin:0 0 0.75rem; }
+    .card p:last-child { margin-bottom:0; }
+    pre { background:#0a0e14; border:1px solid var(--border); border-radius:8px; padding:0.85rem 1rem; overflow-x:auto; color:#d7e2f0; font-size:0.85rem; }
+    code { background:#0a0e14; padding:0.1em 0.35em; border-radius:4px; font-size:0.9em; }
+    pre code { background:transparent; padding:0; }
+    table { width:100%; border-collapse:collapse; margin:0.5rem 0 0.75rem; font-size:0.9rem; }
+    th, td { border:1px solid var(--border); padding:0.45rem 0.55rem; text-align:left; color:var(--muted); }
+    th { color:var(--text); }
+    a { color:var(--accent); }
+    nav { margin-bottom:1.25rem; font-size:0.9rem; }
+    hr { border:none; border-top:1px solid var(--border); margin:1.25rem 0; }
+    .cta { border-color:var(--accent); background:var(--cta-bg); text-align:center; }
+    .btn { display:inline-block; background:var(--accent); color:#0a1210 !important; font-weight:700; text-decoration:none; padding:0.65rem 1.15rem; border-radius:8px; }
+    footer { margin-top:2rem; font-size:0.8rem; color:var(--muted); }
+    ul { margin:0.35rem 0 0.75rem; padding-left:1.2rem; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav><a href="./">← Offer home</a> · <a href="./examples.html">Examples</a> · <a href="./faq.html">FAQ</a></nav>
+    <p class="tag">Guide · free MIT tool</p>
+    <h1>Hash-chained cash journals in ~100 lines of Python</h1>
+    <p class="lead">Why spreadsheets silently rewrite history — and how an append-only SHA-256 cash journal makes tampering obvious. No blockchain. No SaaS. One CSV.</p>
+<p>If you keep a personal or micro-business cash log in a spreadsheet, you already know the failure mode: <strong>anyone with edit access can rewrite yesterday</strong>. Cells do not complain. Formulas still sum. The story of the money quietly changes.</p>
+<p>Accounting software solves some of that with permissions and audit trails — at the cost of accounts, subscriptions, and ceremony you may not want for a solo experiment or a client handoff.</p>
+<p>This guide is about a smaller idea: an <strong>append-only cash journal</strong> where every row cryptographically depends on the previous tip. If someone edits history, <code>verify</code> fails. No blockchain. No SaaS. One CSV. One Python file. Stdlib only.</p>
+<p><strong>Free tool:</strong> <a href="https://vision4cloud.github.io/aeo-001-cash-ledger/">cash-ledger</a> (MIT) — <a href="https://github.com/vision4cloud/aeo-001-cash-ledger">repo</a></p>
+<hr />
+<div class="card"><h2>What “hash-chained” means here</h2>
+<p>1. Start with a <strong>genesis</strong> row whose <code>prev_entry_hash</code> is sixty-four zero hex digits.</p>
+<p>2. For each new entry, take the previous tip hash, then SHA-256 a <strong>canonical JSON</strong> payload of the new row’s fields (sorted keys, fixed decimal money, no fluff).</p>
+<p>3. Store <code>entry_hash = SHA256(prev_entry_hash + &quot;\n&quot; + payload)</code>.</p>
+<p>4. The next row’s <code>prev_entry_hash</code> <strong>must</strong> equal the prior <code>entry_hash</code>.</p>
+<p>Change any past amount, memo, or timestamp → hashes diverge → <code>verify</code> prints <code>FAIL</code>.</p>
+<p>This is <strong>not</strong> independent custody. It does not replace bank statements or audited books. It *does* make silent rewrite obvious on a laptop you control.</p>
+<hr />
+</div>
+<div class="card"><h2>Quick start (copy-paste)</h2>
+<p>Requirements: Python 3.9+ (no <code>pip install</code>).</p>
+<pre><code># From the release zip or cash-ledger/ folder:
+python3 cash_ledger.py -f my_cash.csv init --currency INR --memo &quot;Opening journal&quot;
+
+python3 cash_ledger.py -f my_cash.csv add --amount 999 --direction in \
+  --type SALE --counterparty customer_001 --memo &quot;Ledger setup gig&quot;
+
+python3 cash_ledger.py -f my_cash.csv add --amount 50 --direction out \
+  --type EXPENSE --counterparty vendor_x --memo &quot;Domain renewal&quot;
+
+python3 cash_ledger.py -f my_cash.csv verify
+python3 cash_ledger.py -f my_cash.csv tip
+python3 cash_ledger.py -f my_cash.csv balance</code></pre>
+<table>
+<tr><th>Command</th><th>Purpose</th></tr>
+<tr><td>`init`</td><td>Create ledger + genesis</td></tr>
+<tr><td>`add`</td><td>Append a chained entry</td></tr>
+<tr><td>`verify`</td><td>Recompute the whole chain</td></tr>
+<tr><td>`tip`</td><td>Show current tip hash</td></tr>
+<tr><td>`balance`</td><td>Sum cash effects (verify first)</td></tr>
+</table>
+<p>See also <a href="./examples.html">examples.html</a> / <a href="./examples.html">EXAMPLES.md</a> for a short sample workflow.</p>
+<hr />
+</div>
+<div class="card"><h2>A tiny mental model</h2>
+<p>Think of the CSV as a <strong>tamper-evident notebook</strong>:</p>
+<ul><li>Spreadsheets optimize for *editing*.</li><li>Hash chains optimize for *append + proof*.</li></ul>
+<p>When you hand a client a starter ledger, they can keep adding rows and periodically run <code>verify</code>. If a file “comes back different,” the chain says so without arguing about who edited cell B14.</p>
+<p>Useful for:</p>
+<ul><li>Solo operators / side projects who want integrity without QuickBooks</li><li>Experiment logs where rewriting history is a bug, not a feature</li><li>Handing someone a starter journal they keep verifying locally</li></ul>
+<hr />
+</div>
+<div class="card"><h2>Honest scope (what this is not)</h2>
+<ul><li>Not a payment processor</li><li>Not tax advice</li><li>Not a substitute for regulated accounting when you need it</li><li>Not “AI will make you rich” content</li></ul>
+<p>If you need a one-off <strong>cleanup script</strong>, <strong>ledger setup</strong>, or <strong>spreadsheet automation</strong>, fixed-price micro-scripts are available as an India-based solo offer — no fake testimonials, no retainers, clear deliverables:</p>
+<table>
+<tr><th>Tier</th><th>What</th><th>Price</th></tr>
+<tr><td>A</td><td>CSV/sheet cleanup script</td><td>₹499</td></tr>
+<tr><td>B</td><td>`cash-ledger` setup for your workflow</td><td>₹999</td></tr>
+<tr><td>C</td><td>Fixed-scope import→transform→export automation</td><td>₹2499</td></tr>
+</table>
+<p>Details: <strong><a href="https://vision4cloud.github.io/aeo-001-cash-ledger/">offer page</a></strong> · order via <a href="https://github.com/vision4cloud/aeo-001-cash-ledger/issues/new?template=order.yml">GitHub Issue</a>.</p>
+<p>Payment settles on <strong>owner-held</strong> rails after written scope — do not send bank PINs, OTPs, or CVVs. If you only want the free CLI, take it and ignore the tiers. That is a success outcome.</p>
+<hr />
+</div>
+<div class="card"><h2>Try the integrity check yourself</h2>
+<p>1. <code>init</code> a ledger and <code>add</code> two rows.</p>
+<p>2. Run <code>verify</code> → expect <code>PASS</code>.</p>
+<p>3. Open the CSV in a text editor and change an old <code>amount</code>.</p>
+<p>4. Run <code>verify</code> again → expect <code>FAIL</code>.</p>
+<p>That five-minute exercise teaches more than a paragraph of theory.</p>
+<hr />
+</div>
+<div class="card"><h2>Links</h2>
+<ul><li>Landing + offers: https://vision4cloud.github.io/aeo-001-cash-ledger/</li><li>Guide (this page): https://vision4cloud.github.io/aeo-001-cash-ledger/guide-hash-chained-journals.html *(raw markdown also at <code>/docs/guide-hash-chained-journals.md</code>)*</li><li>Source / zip: https://github.com/vision4cloud/aeo-001-cash-ledger</li></ul>
+<p>*Built as a $0-capex experiment. Tool stays free/MIT either way.*</p>
+</div>
+    <div class="card cta">
+      <p style="margin:0 0 0.75rem;color:var(--muted);">Try the free CLI, or open a fixed-price order Issue.</p>
+      <a class="btn" href="https://github.com/vision4cloud/aeo-001-cash-ledger/issues/new?template=order.yml">Open order Issue</a>
+      &nbsp; <a href="https://github.com/vision4cloud/aeo-001-cash-ledger/releases/download/v1.0.0/cash-ledger-v1.0.0.zip">Download zip</a>
+    </div>
+    <footer>EX-001 · guide-hash-chained-journals.html · 2026-09-17 · $0 Pages conversion</footer>
+  </div>
+</body>
+</html>

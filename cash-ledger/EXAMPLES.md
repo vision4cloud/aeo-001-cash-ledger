@@ -44,6 +44,7 @@ Copy `starter_ledger.csv` if you want a pre-made genesis, or always `init` fresh
 
 ## Next steps
 
-- Longer explainer: [docs/guide-hash-chained-journals.md](../docs/guide-hash-chained-journals.md)
+- Longer explainer: [guide (HTML)](https://vision4cloud.github.io/aeo-001-cash-ledger/guide-hash-chained-journals.html) · [markdown](../docs/guide-hash-chained-journals.md)
 - Landing / tiers: https://vision4cloud.github.io/aeo-001-cash-ledger/
-- Order / questions: https://github.com/vision4cloud/aeo-001-cash-ledger/issues/new
+- Order / questions: https://github.com/vision4cloud/aeo-001-cash-ledger/issues/new?template=order.yml
+- Pages sample workflow: https://vision4cloud.github.io/aeo-001-cash-ledger/examples.html

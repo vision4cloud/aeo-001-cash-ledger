@@ -1,0 +1,17 @@
+# cash-ledger + fixed-price micro-automation (AEO-001 EX-001)
+
+> Free MIT Python CLI: append-only SHA-256 hash-chained cash journal (stdlib only). Optional India-based fixed-price micro-scripts (₹499 / ₹999 / ₹2499). No fake testimonials. Order via GitHub Issue; pay receive-only UPI after written scope.
+
+## Primary
+- Offer home: https://vision4cloud.github.io/aeo-001-cash-ledger/
+- FAQ (order & payment): https://vision4cloud.github.io/aeo-001-cash-ledger/faq.html
+- Sample workflow: https://vision4cloud.github.io/aeo-001-cash-ledger/examples.html
+- Guide (hash-chained journals): https://vision4cloud.github.io/aeo-001-cash-ledger/guide-hash-chained-journals.html
+- Order template: https://github.com/vision4cloud/aeo-001-cash-ledger/issues/new?template=order.yml
+- Release zip: https://github.com/vision4cloud/aeo-001-cash-ledger/releases/download/v1.0.0/cash-ledger-v1.0.0.zip
+- Source: https://github.com/vision4cloud/aeo-001-cash-ledger
+
+## Notes
+- Payment: receive-only UPI 9910990086@indie after scope agreement; never send PIN/OTP/CVV/passwords.
+- Revenue counted only after settlement confirmation.
+- Free forever: cash-ledger CLI under MIT.

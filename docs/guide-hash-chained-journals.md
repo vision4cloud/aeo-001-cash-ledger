@@ -50,7 +50,7 @@ python3 cash_ledger.py -f my_cash.csv balance
 | `tip` | Show current tip hash |
 | `balance` | Sum cash effects (verify first) |
 
-See also [EXAMPLES.md](../cash-ledger/EXAMPLES.md) for a short sample workflow.
+See also [examples.html](./examples.html) / [EXAMPLES.md](../cash-ledger/EXAMPLES.md) for a short sample workflow.
 
 ---
 
@@ -86,7 +86,7 @@ If you need a one-off **cleanup script**, **ledger setup**, or **spreadsheet aut
 | B | `cash-ledger` setup for your workflow | ₹999 |
 | C | Fixed-scope import→transform→export automation | ₹2499 |
 
-Details: **[offer page](https://vision4cloud.github.io/aeo-001-cash-ledger/)** · order via [GitHub Issue](https://github.com/vision4cloud/aeo-001-cash-ledger/issues/new).
+Details: **[offer page](https://vision4cloud.github.io/aeo-001-cash-ledger/)** · order via [GitHub Issue](https://github.com/vision4cloud/aeo-001-cash-ledger/issues/new?template=order.yml).
 
 Payment settles on **owner-held** rails after written scope — do not send bank PINs, OTPs, or CVVs. If you only want the free CLI, take it and ignore the tiers. That is a success outcome.
 
