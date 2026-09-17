@@ -1,0 +1,17 @@
+{
+  "schema": "aeo-capital-request-v1",
+  "request_id": "CR-SANDBOX-20260917T181844Z",
+  "created_at_utc": "2026-09-17T18:18:47Z",
+  "expires_at_utc": null,
+  "currency": "INR",
+  "amount_minor": 100,
+  "category": "OPERATING_SPEND",
+  "purpose_summary": "COMMISSIONING SANDBOX E2E TEST ONLY",
+  "maximum_possible_loss_minor": 100,
+  "recurring_liability": false,
+  "requires_human_auth": false,
+  "requires_new_credentials": false,
+  "zero_cost_alternative_exists": false,
+  "evidence_spend": "Cashfree sandbox transfer execution result",
+  "evidence_result": "Terminal Cashfree sandbox transfer status"
+}
