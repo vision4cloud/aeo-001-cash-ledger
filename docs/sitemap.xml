@@ -11,6 +11,11 @@
     <priority>0.95</priority>
   </url>
   <url>
+    <loc>https://vision4cloud.github.io/aeo-001-cash-ledger/compare.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.93</priority>
+  </url>
+  <url>
     <loc>https://vision4cloud.github.io/aeo-001-cash-ledger/integrity.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.92</priority>

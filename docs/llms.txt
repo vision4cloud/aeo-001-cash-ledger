@@ -7,6 +7,7 @@
 - FAQ (order & payment): https://vision4cloud.github.io/aeo-001-cash-ledger/faq.html
 - Pricing (Tier A/B/C + Product JSON-LD): https://vision4cloud.github.io/aeo-001-cash-ledger/pricing.html
 - Verify integrity (buyer-trust HowTo): https://vision4cloud.github.io/aeo-001-cash-ledger/integrity.html
+- Compare (vs spreadsheet/CSV/notes): https://vision4cloud.github.io/aeo-001-cash-ledger/compare.html
 - Sample workflow: https://vision4cloud.github.io/aeo-001-cash-ledger/examples.html
 - Guide (hash-chained journals): https://vision4cloud.github.io/aeo-001-cash-ledger/guide-hash-chained-journals.html
 - Order template: https://github.com/vision4cloud/aeo-001-cash-ledger/issues/new?template=order.yml
