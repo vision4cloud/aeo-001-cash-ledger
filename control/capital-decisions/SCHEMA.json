@@ -1,0 +1,12 @@
+{
+  "schema": "aeo-capital-decision-v1",
+  "request_id": "CR-...",
+  "decision": "POLICY_APPROVED_PENDING_PAYMENT_RAIL | OWNER_REQUIRED | REJECTED_INVALID",
+  "reason": "string",
+  "decided_at_utc": "ISO-8601 UTC",
+  "requested_amount_minor": 0,
+  "currency": "INR",
+  "category": "OPERATING_SPEND | CAPITAL_AT_RISK",
+  "purpose_summary": "non-secret summary",
+  "economic_effect_minor": 0
+}

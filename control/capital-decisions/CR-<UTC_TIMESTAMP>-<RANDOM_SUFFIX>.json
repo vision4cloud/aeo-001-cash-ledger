@@ -1,0 +1,12 @@
+{
+  "category": "OPERATING_SPEND or CAPITAL_AT_RISK",
+  "currency": "INR",
+  "decided_at_utc": "2026-09-17T16:51:38.921876Z",
+  "decision": "REJECTED_INVALID",
+  "economic_effect_minor": 0,
+  "purpose_summary": "<brief non-secret purpose>",
+  "reason": "BAD_AMOUNT",
+  "request_id": "CR-<UTC_TIMESTAMP>-<RANDOM_SUFFIX>",
+  "requested_amount_minor": 0,
+  "schema": "aeo-capital-decision-v1"
+}
