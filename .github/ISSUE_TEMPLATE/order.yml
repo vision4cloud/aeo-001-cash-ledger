@@ -1,0 +1,41 @@
+name: Order micro-automation
+description: Fixed-price Tier A / B / C order (agree scope here, then pay via UPI)
+title: "[Tier ?] short description"
+labels: []
+body:
+  - type: dropdown
+    id: tier
+    attributes:
+      label: Tier
+      description: See OFFER.md / Pages for deliverables and prices.
+      options:
+        - "A — Cleanup Script (₹499)"
+        - "B — Ledger Setup (₹999)"
+        - "C — Spreadsheet Automation (₹2499)"
+        - "Question / custom (no commitment)"
+    validations:
+      required: true
+  - type: textarea
+    id: painful_step
+    attributes:
+      label: Painful step today
+      description: What you do manually that you want replaced.
+      placeholder: e.g. Every week I copy three bank CSVs into one sheet and rename columns by hand…
+    validations:
+      required: true
+  - type: textarea
+    id: desired_output
+    attributes:
+      label: Desired output
+      description: Concrete files or behavior you want delivered.
+    validations:
+      required: true
+  - type: textarea
+    id: sample
+    attributes:
+      label: Sample / constraints
+      description: Anonymized sample notes, column names, OS, Python version. Do NOT paste passwords, OTPs, CVVs, or bank secrets.
+  - type: markdown
+    attributes:
+      value: |
+        After we agree written scope in this Issue, pay via receive-only UPI `9910990086@indie` and include this Issue URL in the UPI note. Work starts after settlement is confirmed (or 50% deposit for Tier C). Revenue is counted only after settlement.
