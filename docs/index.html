@@ -3,25 +3,25 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Micro-automation — fixed-price scripts & cash-ledger</title>
-  <meta name="description" content="Honest fixed-price micro-automation: CSV cleanup, cash-ledger setup, spreadsheet automation. Free cash-ledger CLI included. Order via GitHub Issue." />
+  <title>Spreadsheet Cleanup Packs + free cash-ledger</title>
+  <meta name="description" content="Buyer-facing Spreadsheet Cleanup Packs at ₹999, ₹1499, or ₹2499. Delivery in 24–48h. Keep the free cash-ledger tool." />
   <link rel="canonical" href="https://vision4cloud.github.io/aeo-001-cash-ledger/" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Fixed-price micro-automation + free cash-ledger CLI" />
-  <meta property="og:description" content="₹499 / ₹999 / ₹2499 one-off scripts. Free MIT cash-ledger. Order via GitHub Issue; pay receive-only UPI after scope." />
+  <meta property="og:title" content="Spreadsheet Cleanup Packs + free cash-ledger" />
+  <meta property="og:description" content="Send 10 sample rows, agree the scope, and receive a cleaned spreadsheet in 24–48h. ₹999 / ₹1499 / ₹2499. Buy via GitHub Issue or email." />
   <meta property="og:url" content="https://vision4cloud.github.io/aeo-001-cash-ledger/" />
   <meta name="twitter:card" content="summary" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Micro-automation — fixed-price scripts & cash-ledger",
+    "name": "Spreadsheet Cleanup Packs + free cash-ledger",
     "url": "https://vision4cloud.github.io/aeo-001-cash-ledger/",
-    "description": "Honest fixed-price micro-automation with free cash-ledger CLI. Order via GitHub Issue.",
+    "description": "Honest, fixed-price Spreadsheet Cleanup Packs with 24–48h delivery, plus a free cash-ledger CLI.",
     "offers": [
-      {"@type": "Offer", "name": "Cleanup Script (Tier A)", "price": "499", "priceCurrency": "INR", "availability": "https://schema.org/InStock"},
-      {"@type": "Offer", "name": "Ledger Setup (Tier B)", "price": "999", "priceCurrency": "INR", "availability": "https://schema.org/InStock"},
-      {"@type": "Offer", "name": "Spreadsheet Automation (Tier C)", "price": "2499", "priceCurrency": "INR", "availability": "https://schema.org/InStock"},
+      {"@type": "Offer", "name": "Spreadsheet Cleanup Pack — Basic", "price": "999", "priceCurrency": "INR", "availability": "https://schema.org/InStock"},
+      {"@type": "Offer", "name": "Spreadsheet Cleanup Pack — Standard", "price": "1499", "priceCurrency": "INR", "availability": "https://schema.org/InStock"},
+      {"@type": "Offer", "name": "Spreadsheet Cleanup Pack — Plus", "price": "2499", "priceCurrency": "INR", "availability": "https://schema.org/InStock"},
       {"@type": "Offer", "name": "cash-ledger CLI", "price": "0", "priceCurrency": "INR", "availability": "https://schema.org/InStock"}
     ]
   }
@@ -57,78 +57,74 @@
       margin-bottom: 1rem;
     }
     .card h2 { margin: 0 0 0.35rem; font-size: 1.15rem; }
+    .product { border-color: var(--accent); background: linear-gradient(135deg, #143028 0%, var(--card) 60%); }
+    .product-intro { margin: 0.5rem 0 1rem; color: var(--muted); }
+    .pack-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7rem; }
+    .pack { background: rgba(15, 20, 25, 0.55); border: 1px solid var(--border); border-radius: 8px; padding: 0.85rem; }
+    .pack h3 { margin: 0 0 0.3rem; font-size: 1rem; }
     .price { font-size: 1.35rem; color: var(--accent); font-weight: 700; }
     .price span { color: var(--muted); font-size: 0.9rem; font-weight: 500; }
+    .pack p { color: var(--muted); font-size: 0.9rem; margin: 0.45rem 0 0; }
     ul { margin: 0.5rem 0 0; padding-left: 1.2rem; color: var(--muted); }
     ol.howto { margin: 0.5rem 0 0; padding-left: 1.2rem; color: var(--muted); }
     ol.howto li { margin-bottom: 0.4rem; }
-    .free {
-      border-color: var(--accent);
-      background: linear-gradient(135deg, #143028 0%, var(--card) 60%);
-    }
-    .cta {
-      border-color: var(--accent);
-      background: var(--cta-bg);
-      text-align: center;
-      padding: 1.5rem 1.35rem;
-    }
+    .free { border-color: var(--accent); background: linear-gradient(135deg, #143028 0%, var(--card) 60%); }
+    .cta { border-color: var(--accent); background: var(--cta-bg); text-align: center; padding: 1.5rem 1.35rem; }
     .cta p { margin: 0 0 0.85rem; color: var(--muted); font-size: 0.95rem; }
-    .btn {
-      display: inline-block;
-      background: var(--accent);
-      color: #0a1210 !important;
-      font-weight: 700;
-      text-decoration: none;
-      padding: 0.7rem 1.25rem;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
+    .btn { display: inline-block; background: var(--accent); color: #0a1210 !important; font-weight: 700; text-decoration: none; padding: 0.7rem 1.25rem; border-radius: 8px; font-size: 1rem; }
     .btn:hover { filter: brightness(1.08); }
-    .btn-secondary {
-      display: inline-block;
-      margin-top: 0.65rem;
-      color: var(--accent) !important;
-      font-size: 0.9rem;
-    }
-    .note {
-      font-size: 0.9rem;
-      color: var(--muted);
-      border-left: 3px solid var(--border);
-      padding-left: 0.85rem;
-      margin: 1.5rem 0;
-    }
+    .btn-secondary { display: inline-block; margin-top: 0.65rem; color: var(--accent) !important; font-size: 0.9rem; }
+    .note { font-size: 0.9rem; color: var(--muted); border-left: 3px solid var(--border); padding-left: 0.85rem; margin: 1.5rem 0; }
     footer { margin-top: 2.5rem; font-size: 0.8rem; color: var(--muted); }
     a { color: var(--accent); }
     code { background: #0a0e14; padding: 0.1em 0.35em; border-radius: 4px; font-size: 0.9em; }
+    @media (max-width: 560px) { .pack-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <p class="tag">Fixed-price micro-automation</p>
-    <h1>Scripts that replace one painful manual step</h1>
+    <p class="tag">Buyer-facing fixed-price product</p>
+    <h1>Spreadsheet Cleanup Packs</h1>
     <p class="lead">
-      India-based solo operator. Honest scope. No fake testimonials.
-      Free open tool: <code>cash-ledger</code> — a tiny SHA-256 hash-chained cash journal CLI.
+      Send a small sample and get a clearly scoped spreadsheet cleanup delivered in 24–48h.
+      No fake testimonials, no vague promises, and no credentials required.
+      The free open tool <code>cash-ledger</code> remains available below.
     </p>
 
-    <div class="card cta" id="order">
-      <h2 style="margin:0 0 0.5rem;font-size:1.2rem;">Next step — order or ask</h2>
-      <p>
-        Prefer opening a <strong>GitHub Issue</strong> on this repo (free, no new account if you already use GitHub).
-        Say which tier (A / B / C), what you need cleaned or automated, and attach a small sample if you can.
-      </p>
-      <a class="btn" href="https://github.com/vision4cloud/aeo-001-cash-ledger/issues/new?template=order.yml">Open a GitHub Issue to order</a>
-      <br />
-      <a class="btn-secondary" href="./pricing.html">See Tier A / B / C pricing</a>
-      <br />
-      <a class="btn-secondary" href="./integrity.html">Verify the ledger yourself</a>
-      <br />
-      <a class="btn-secondary" href="./compare.html">Compare vs spreadsheet / CSV</a>
-      <br />
-      <a class="btn-secondary" href="https://github.com/vision4cloud/aeo-001-cash-ledger/issues">Browse existing issues</a>
+    <div class="card product" id="cleanup-packs">
+      <h2>Spreadsheet Cleanup Pack</h2>
+      <p class="product-intro">Choose the fixed-price pack that matches your sheet. Final scope is confirmed before payment.</p>
+      <div class="pack-grid">
+        <div class="pack">
+          <h3>Basic</h3>
+          <div class="price">₹999</div>
+          <p>One focused cleanup: remove duplicates, normalize values, or tidy columns.</p>
+        </div>
+        <div class="pack">
+          <h3>Standard</h3>
+          <div class="price">₹1499</div>
+          <p>Multiple cleanup rules for one spreadsheet, with a clear before/after result.</p>
+        </div>
+        <div class="pack">
+          <h3>Plus</h3>
+          <div class="price">₹2499</div>
+          <p>More involved cleanup or repeatable spreadsheet workflow, with usage notes.</p>
+        </div>
+      </div>
+      <p style="margin:1rem 0 0;color:var(--muted);"><strong style="color:var(--text);">Delivery:</strong> 24–48h after the scope and sample are confirmed.</p>
+      <p style="margin:0.4rem 0 0;color:var(--muted);"><strong style="color:var(--text);">Send:</strong> 10 sample rows (anonymized if needed) plus the cleanup outcome you want.</p>
     </div>
 
-    <div class="card free">
+    <div class="card cta" id="buy">
+      <h2 style="margin:0 0 0.5rem;font-size:1.2rem;">How to buy</h2>
+      <p>Open a GitHub Issue <strong>or email</strong> <a href="mailto:grvshrma91@gmail.com">grvshrma91@gmail.com</a> with your chosen pack, the cleanup goal, and 10 sample rows.</p>
+      <a class="btn" href="https://github.com/vision4cloud/aeo-001-cash-ledger/issues/new?template=order.yml">Open a GitHub Issue</a>
+      <br />
+      <a class="btn-secondary" href="mailto:grvshrma91@gmail.com?subject=Spreadsheet%20Cleanup%20Pack">Email the sample and request</a>
+      <p style="margin-top:1rem;">After the written scope is confirmed, pay via UPI: <code>9910990086@indie</code>.</p>
+    </div>
+
+    <div class="card free" id="cash-ledger">
       <h2>Free — cash-ledger</h2>
       <p class="price">₹0 <span>/ forever · MIT</span></p>
       <ul>
@@ -145,82 +141,37 @@
         · <a href="./integrity.html">Verify integrity</a>
         · <a href="./compare.html">Compare</a>
         · <a href="./examples.html">Sample workflow</a>
-        · <a href="./faq.html">FAQ (order &amp; payment)</a>
-        · <a href="./pricing.html">Pricing (Tier A/B/C)</a>
+        · <a href="./faq.html">FAQ</a>
       </p>
     </div>
 
+    <h2 class="section">What is included</h2>
     <div class="card">
-      <h2>A — Cleanup Script</h2>
-      <p class="price">₹499 <span>· ~US$6 · one-off</span></p>
       <ul>
-        <li>One Python or spreadsheet script for CSV/sheet cleanup</li>
-        <li>Dedup / normalize / rename columns — your sample data</li>
-        <li>Short usage notes · 1–2 business days</li>
+        <li>Cleanup of the agreed spreadsheet using the supplied sample and rules.</li>
+        <li>Clean output plus brief notes so you can repeat the process.</li>
+        <li>One fixed scope and one delivery; anything outside scope is quoted separately first.</li>
       </ul>
     </div>
 
-    <div class="card">
-      <h2>B — Ledger Setup</h2>
-      <p class="price">₹999 <span>· ~US$12 · one-off</span></p>
-      <ul>
-        <li><code>cash-ledger</code> wired to your workflow</li>
-        <li>Custom entry-type mapping + verify walkthrough</li>
-        <li>Starter CSV · 2–3 business days</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2>C — Spreadsheet Automation</h2>
-      <p class="price">₹2499 <span>· ~US$30 · one-off</span></p>
-      <ul>
-        <li>Fixed-scope import → transform → export</li>
-        <li>README + one revision round</li>
-        <li>3–5 business days</li>
-      </ul>
-    </div>
-
-    <h2 class="section">How to order</h2>
+    <h2 class="section">Order details</h2>
     <div class="card">
       <ol class="howto">
-        <li><a href="https://github.com/vision4cloud/aeo-001-cash-ledger/issues/new?template=order.yml">Open a new Issue</a> on <code>vision4cloud/aeo-001-cash-ledger</code>.</li>
-        <li>Title it with the tier (e.g. <code>[Tier A] CSV cleanup for invoices</code>).</li>
-        <li>Describe the painful step, desired output, and attach a small anonymized sample if possible.</li>
-        <li>We agree written scope in the Issue thread.</li>
-        <li>After scope agreement, pay the agreed price via the receive-only UPI ID <code>9910990086@indie</code>; include the GitHub Issue URL or order reference in the UPI note. Work starts after settlement is confirmed (or 50% deposit for Tier C).</li>
-        <li>Delivery via private link or repo; you verify locally. Do not send passwords, OTPs, CVVs, or bank secrets.</li>
+        <li>Choose Basic (₹999), Standard (₹1499), or Plus (₹2499).</li>
+        <li>Open a <a href="https://github.com/vision4cloud/aeo-001-cash-ledger/issues/new?template=order.yml">GitHub Issue</a> or email <a href="mailto:grvshrma91@gmail.com">grvshrma91@gmail.com</a> with 10 sample rows and the desired result.</li>
+        <li>Confirm the written scope and 24–48h delivery window.</li>
+        <li>Pay the agreed price via UPI <code>9910990086@indie</code>, including the Issue URL or email reference.</li>
+        <li>Receive the cleaned file and notes within the agreed window. Do not send passwords, OTPs, CVVs, or bank credentials.</li>
       </ol>
     </div>
 
-    <h2 class="section">Payment</h2>
-    <div class="card">
-      <p style="margin:0;">After we agree the written scope in the GitHub Issue, pay the agreed price via the receive-only UPI ID <code>9910990086@indie</code>. Include the GitHub Issue URL or order reference in the UPI note.</p>
-      <p style="margin:0.75rem 0 0;">Revenue is counted only after settlement is confirmed—not when an Issue is opened or scope is agreed. No bank login or payment secrets are needed; do not send passwords, OTPs, CVVs, or bank credentials.</p>
-    </div>
-
-
-    <h2 class="section" id="faq">FAQ</h2>
-    <div class="card">
-      <p style="margin:0 0 0.75rem;"><strong>How do I order?</strong> Open a GitHub Issue with the <a href="https://github.com/vision4cloud/aeo-001-cash-ledger/issues/new?template=order.yml">Order micro-automation</a> template. Pick Tier A/B/C (or Question), describe the painful step, and attach an anonymized sample if you can.</p>
-      <p style="margin:0 0 0.75rem;"><strong>When do I pay?</strong> Only after we agree written scope in the Issue. Then pay via receive-only UPI <code>9910990086@indie</code> and put the Issue URL in the UPI note. Work starts after settlement (or 50% deposit for Tier C).</p>
-      <p style="margin:0 0 0.75rem;"><strong>Do you need my bank login?</strong> No. Never send PIN, OTP, CVV, passwords, or recovery codes. Anonymized sample files only.</p>
-      <p style="margin:0 0 0.75rem;"><strong>What is free?</strong> The MIT <code>cash-ledger</code> CLI (download + guide + EXAMPLES). Paid tiers are optional fixed-price help.</p>
-      <p style="margin:0;"><strong>Outside India?</strong> Prices are INR. If you cannot use UPI, say so in the Issue — we can discuss a written alternative before any work starts.</p>
-    </div>
-
     <p class="note">
-      <strong>Integrity:</strong> No fabricated social proof. Operator does not hold bank PINs, CVVs, OTPs, or passkeys.
-      Payment settles via the receive-only UPI ID above after scope agreement. This page is a static offer sheet — no live checkout widget in this phase.
-    </p>
-
-    <p class="note">
-      <strong>Contact / order channel ($0):</strong>
-      <a href="https://github.com/vision4cloud/aeo-001-cash-ledger/issues/new?template=order.yml">GitHub Issues on this repo</a>.
-      Prefer Issues over email for a public paper trail of scope. Do not send credentials.
+      <strong>Honesty:</strong> No fabricated social proof or testimonials. Prices are fixed for the listed scope;
+      delivery depends on receiving a usable sample and agreeing the work. This is a static offer page with no live checkout widget.
     </p>
 
     <footer>
-      EX-001 offer surface · AEO-001 · updated 2026-09-18 (compare.html) · prices in INR
+      EX-004 Spreadsheet Cleanup Packs · AEO-001 · updated 2026-09-19 · prices in INR
     </footer>
   </div>
 </body>

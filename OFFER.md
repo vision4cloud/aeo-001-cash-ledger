@@ -1,62 +1,41 @@
-# Micro-automation service menu
+# Spreadsheet Cleanup Packs (EX-004)
 
-**Operator:** India-based solo builder (AEO-001 experiment surface)  
-**Positioning:** Honest fixed-price scripts and spreadsheet/ledger automation. No fake reviews. No guaranteed viral results. Deliverables are concrete files you keep.
+A buyer-facing, fixed-price spreadsheet cleanup service. Send 10 sample rows and the result you want; the written scope is confirmed before payment. No fake testimonials, no guaranteed outcomes, and no job-seeking language.
 
-**Free tool (lead magnet):** [`cash-ledger`](https://github.com/vision4cloud/aeo-001-cash-ledger/releases/download/v1.0.0/cash-ledger-v1.0.0.zip) — append-only SHA-256 cash journal CLI. Download the zip, run locally, verify the chain yourself. [Release v1.0.0](https://github.com/vision4cloud/aeo-001-cash-ledger/releases/tag/v1.0.0).
+## Packs
 
-**Live offer page:** https://vision4cloud.github.io/aeo-001-cash-ledger/
+| Pack | Price | Best for | Delivery |
+|---|---:|---|---|
+| **Basic** | **₹999** | One focused cleanup such as removing duplicates, normalizing values, or tidying columns | 24–48h |
+| **Standard** | **₹1499** | Multiple cleanup rules for one spreadsheet with a clear before/after result | 24–48h |
+| **Plus** | **₹2499** | More involved cleanup or a repeatable spreadsheet workflow with usage notes | 24–48h |
 
----
+### What to send
 
-## Packages (one-off)
+- 10 sample rows (anonymized if needed)
+- The spreadsheet format (Google Sheets, Excel, or CSV)
+- The cleanup outcome you want
 
-Prices shown in INR (primary) and approximate USD (reporting; FX varies).
+The listed price covers the agreed fixed scope. Anything outside that scope is discussed and quoted separately before work starts. Delivery is 24–48h after the sample and written scope are confirmed.
 
-| Tier | Name | Price (INR) | Approx USD | What you get | Typical turnaround |
-|------|------|------------:|----------:|--------------|--------------------|
-| A | **Cleanup Script** | ₹499 | ~\$6 | One Python or spreadsheet script that cleans / dedupes / normalizes a CSV or sheet you provide; short usage notes | 1–2 business days |
-| B | **Ledger Setup** | ₹999 | ~\$12 | `cash-ledger` (or equivalent) initialized for your workflow + 1 custom entry type mapping + verify walkthrough + starter CSV | 2–3 business days |
-| C | **Spreadsheet Automation** | ₹2499 | ~\$30 | Fixed-scope automation: import → transform → export (Sheets/Excel/CSV), or a small CLI that replaces a repetitive manual step; includes README + one revision round | 3–5 business days |
+## How to buy
 
-### Scope rules (honest)
+1. Choose Basic (₹999), Standard (₹1499), or Plus (₹2499).
+2. **Open a [GitHub Issue](https://github.com/vision4cloud/aeo-001-cash-ledger/issues/new?template=order.yml) or email [grvshrma91@gmail.com](mailto:grvshrma91@gmail.com)** with the pack, cleanup goal, and 10 sample rows.
+3. Confirm the written scope and delivery window.
+4. Pay the agreed price via UPI: **`9910990086@indie`**. Include the Issue URL or email reference in the payment note.
+5. Receive the cleaned spreadsheet and brief usage notes within 24–48h.
 
-- **In scope:** scripts you own forever; local tools; documented steps; one clarification round before build; one revision round after delivery (Tier C).
-- **Out of scope:** ongoing retainers, bank/API credential handling, scraping that violates ToS, guaranteed revenue outcomes, fake testimonials for your brand.
-- **Data:** You send sample/anonymized data. Do not send passwords, OTPs, CVVs, or live bank credentials.
+Do not send passwords, OTPs, CVVs, bank credentials, or other secrets. Use anonymized sample data where possible.
 
-### How to order ($0 channel)
+## Free tool: cash-ledger
 
-1. Open a new GitHub Issue: https://github.com/vision4cloud/aeo-001-cash-ledger/issues/new
-2. Title with tier (e.g. `[Tier A] CSV cleanup for invoices`).
-3. Describe the painful step + desired output; attach a small anonymized sample if you can.
-4. Agree written scope in the Issue thread.
-5. After scope agreement, pay the agreed price via the receive-only UPI ID `9910990086@indie`; include the GitHub Issue URL or order reference in the UPI note. Work starts after owner confirms settlement (or 50% deposit for Tier C).
-6. Delivery via private link or repo; you verify locally.
-
-### Payment
-
-After we agree written scope in the GitHub Issue, pay the agreed price via the receive-only UPI ID `9910990086@indie`. Include the GitHub Issue URL or order reference in the UPI note.
-
-Revenue is counted only after settlement is confirmed—not when an order is opened or scope is agreed. No bank login or payment secrets are needed; do not send passwords, OTPs, CVVs, or bank credentials.
-
-**No payment processor is connected by the operator in this phase.** Issues are the preferred contact/order channel (free; no new SaaS account required if you already use GitHub).
-
----
-
-## Who this is for
-
-- Solo founders / freelancers who want a **tamper-evident cash journal** without QuickBooks
-- Small teams drowning in one-off CSV/sheet cleanup
-- Anyone who needs a **one-script fix**, not a six-month SaaS
-
-## Who this is not for
-
-- Buyers seeking fake social proof or gray-hat growth
-- Projects requiring the operator to hold bank secrets
-- Unlimited revisions / “make me an app” without a written scope
+The [`cash-ledger`](https://github.com/vision4cloud/aeo-001-cash-ledger/releases/download/v1.0.0/cash-ledger-v1.0.0.zip) CLI remains free forever under the MIT license. It is an append-only CSV cash journal with a SHA-256 chain that you can run and verify locally. [Release v1.0.0](https://github.com/vision4cloud/aeo-001-cash-ledger/releases/tag/v1.0.0).
 
 ## Contact
 
-**Preferred:** [Open a GitHub Issue](https://github.com/vision4cloud/aeo-001-cash-ledger/issues/new) on `vision4cloud/aeo-001-cash-ledger`.  
-Do not send credentials in Issues or elsewhere.
+- GitHub Issues: https://github.com/vision4cloud/aeo-001-cash-ledger/issues/new?template=order.yml
+- Email: [grvshrma91@gmail.com](mailto:grvshrma91@gmail.com)
+- Payment UPI: **`9910990086@indie`**
+
+No live checkout widget is connected in this phase. No fabricated social proof is used.
