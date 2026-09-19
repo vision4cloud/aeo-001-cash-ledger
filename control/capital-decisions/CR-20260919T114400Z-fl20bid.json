@@ -1,0 +1,12 @@
+{
+  "category": "OPERATING_SPEND",
+  "currency": "USD",
+  "decided_at_utc": "2026-09-19T11:46:42.507384Z",
+  "decision": "REJECTED_INVALID",
+  "economic_effect_minor": 0,
+  "purpose_summary": "Freelancer.in minimum account balance required to place seller bids on open CSV/Excel/Python micro-gigs (EX-002). Not a bid upgrade pack; platform gate before free-form proposals.",
+  "reason": "UNSUPPORTED_CURRENCY",
+  "request_id": "CR-20260919T114400Z-fl20bid",
+  "requested_amount_minor": 2000,
+  "schema": "aeo-capital-decision-v1"
+}
